@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -22,16 +24,11 @@ class WelcomeScreen extends StatelessWidget {
               Text('Your learning adventure starts now! Explore lessons, gain skills, and take one step closer to success today', style: TextStyle(color:Colors.grey.shade700, fontSize: 20, fontWeight: FontWeight.w400, ), textAlign: TextAlign.center,),
               
               SizedBox(height:30),
-              Container(
-                height: 45,
-                width: size.width * 0.55,
-                decoration: BoxDecoration(
-                  color: Colors.purple,
-                  borderRadius: BorderRadius.circular(50),
-
-                ),
-                child: Center(child: Text('Start Learning', style:TextStyle(color:Colors.white, fontSize: 18, fontWeight: FontWeight.w600)))
-
+              GestureDetector(
+                onTap:() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                child: CustomButton(size: size, text: 'Start Learning'),
               )
           
           
@@ -45,6 +42,35 @@ class WelcomeScreen extends StatelessWidget {
 
 
 
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final Size size;
+  final String text;
+
+
+  const CustomButton({
+    super.key,
+    required this.size,
+    required this.text,
+  });
+
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 45,
+      width: size.width * 0.55,
+      decoration: BoxDecoration(
+        color: Colors.purple,
+        borderRadius: BorderRadius.circular(50),
+    
+      ),
+      child: Center(child: Text(text, style:TextStyle(color:Colors.white, fontSize: 18, fontWeight: FontWeight.w600)))
+    
     );
   }
 }
