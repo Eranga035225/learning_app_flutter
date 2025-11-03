@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:learning_app_flutter/screens/myClasses.dart';
 import 'package:learning_app_flutter/screens/welcome_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -26,7 +28,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Align(
                       alignment: Alignment.topLeft,
-                      child: BackButton()
+                      child: BackButton(
+                        color:Colors.purple
+                      )
                     ),
                     SizedBox(width:115),
                     Text('LOG IN' , style: TextStyle(color:Colors.purple, fontSize: 18),),
@@ -48,7 +52,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: const Color.fromARGB(255, 3, 86, 154),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(child: Text('f    Facebook', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold))),
+                      child: Center(child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                             Icon(FontAwesomeIcons.facebook, color: Colors.white,),
+                             SizedBox(width:10),
+                            Text('Facebook', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                           
+                          ],
+                        ),
+                      )),
                   
                   
                   
@@ -61,7 +75,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(child: Text('G+   Google', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold))),
+                      child: Center(child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Icon(FontAwesomeIcons.googlePlus, color: Colors.white,),
+                            SizedBox(width:15),
+                            Text('Google', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                          ],
+                        ),
+                      )),
                   
                   
                   
@@ -146,10 +169,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],),
                 ),
 
-                SizedBox(height:20),
+                SizedBox(height:30),
 
-                CustomButton(size: size , text: 'Log in with your account'),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> MyClasses()));
 
+
+
+                  },
+                  child: CustomButton(size: size , text: 'Log in with your account')),
+
+                Padding(
+                  padding: const EdgeInsets.only(top:100,left:68,right:50),
+                  child: Row(children: [
+                    Text('Don\'t have an Account?', style: TextStyle(color:Colors.purple,fontSize: 14, fontWeight: FontWeight.bold),),
+                    SizedBox(width:10),
+                    Text('Create account', style:TextStyle(color:Colors.blue,fontSize: 14, fontWeight: FontWeight.bold)),
+                  ],),
+                )
                 
             
             
