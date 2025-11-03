@@ -5,6 +5,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -18,8 +19,20 @@ class WelcomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text('Online Learning Platform', style: TextStyle(color: Colors.purple, fontSize: 30, fontWeight: FontWeight.bold),),
               ),
-              Text('Your learning adventure starts now! Explore lessons, gain skills, and take one step closer to success today', style: TextStyle(color:Colors.grey.shade700, fontSize: 20, fontWeight: FontWeight.w400, ), textAlign: TextAlign.center,)
-          
+              Text('Your learning adventure starts now! Explore lessons, gain skills, and take one step closer to success today', style: TextStyle(color:Colors.grey.shade700, fontSize: 20, fontWeight: FontWeight.w400, ), textAlign: TextAlign.center,),
+              
+              SizedBox(height:30),
+              Container(
+                height: 45,
+                width: size.width * 0.55,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(50),
+
+                ),
+                child: Center(child: Text('Start Learning', style:TextStyle(color:Colors.white, fontSize: 18, fontWeight: FontWeight.w600)))
+
+              )
           
           
             ],
