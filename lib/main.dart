@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Learning App',
       debugShowCheckedModeBanner: false,
       home: SplashScreen()
+
+      
     );
   }
 }
