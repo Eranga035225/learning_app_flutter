@@ -8,6 +8,7 @@ class MyProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       
@@ -76,11 +77,23 @@ class MyProfile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 35.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
                 children: [
-                  settingTile(text: 'Account Setting'),
+                  settingTile(text: 'Account Settings'),
                   settingTile(text: 'Download Options'),
-                  settingTile(text: 'Help & Support'),
-                  settingTile(text: 'Logout'),
+                  settingTile(text: 'Notifications Setting'),
+                  SizedBox(height:30),
+                  settingTile(text: 'Privacy & Policy'),
+                  settingTile(text: 'Help center'),
+                  settingTile(text: 'about Us'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Delete Account', style:TextStyle(color:Colors.red, fontSize: 18)),
+                  ),
+                  SizedBox(height:50),
+
+                  Center(child: CustomButton(size: size, text: 'Log Out'))
                  
 
 
@@ -118,10 +131,13 @@ class settingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text(text, style: TextStyle(color:Colors.purple, fontSize: 18)),
-      Spacer(),
-      Icon(Icons.arrow_forward_ios_rounded, color:Colors.purple, size: 15,)
-    ],);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(children: [
+        Text(text, style: TextStyle(color:Colors.purple, fontSize: 18)),
+        Spacer(),
+        Icon(Icons.arrow_forward_ios_rounded, color:Colors.purple, size: 15,)
+      ],),
+    );
   }
 }

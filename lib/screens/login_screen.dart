@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:learning_app_flutter/screens/myClasses.dart';
 import 'package:learning_app_flutter/screens/welcome_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,202 +10,213 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
- 
   @override
   Widget build(BuildContext context) {
-     final  size = MediaQuery.sizeOf(context);
+    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            // ✅ Apply uniform padding for the whole column
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // Top Row (Back button + Title)
                 Row(
                   children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: BackButton(
-                        color:Colors.purple
-                      )
+                    BackButton(color: Colors.purple),
+                    const Spacer(),
+                    const Text(
+                      'LOG IN',
+                      style: TextStyle(color: Colors.purple, fontSize: 18),
                     ),
-                    SizedBox(width:115),
-                    Text('LOG IN' , style: TextStyle(color:Colors.purple, fontSize: 18),),
+                    const Spacer(flex: 2),
                   ],
                 ),
-                
-                Text('EduMate', style:TextStyle(color:Colors.purple, fontSize:40, fontWeight: FontWeight.bold )),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 45, vertical:40),
-                  child: Text('Enter your log in details to access your account', style:TextStyle(color:Colors.purple, fontSize: 19), textAlign: TextAlign.center,),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                  child: Row(children: [
-                    Container(
-                      height:45,
-                      width: 140,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 3, 86, 154),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                             Icon(FontAwesomeIcons.facebook, color: Colors.white,),
-                             SizedBox(width:10),
-                            Text('Facebook', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-                           
-                          ],
-                        ),
-                      )),
-                  
-                  
-                  
-                    ),
-                    Spacer(),
-                    Container(
-                      height:45,
-                      width: 140,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(FontAwesomeIcons.googlePlus, color: Colors.white,),
-                            SizedBox(width:15),
-                            Text('Google', style:TextStyle(color:Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                      )),
-                  
-                  
-                  
-                  
-                    )
-                  
-                  ],),
-                ),
 
-                Padding(
-                  padding: const EdgeInsets.only(left: 50.0,right:50.0 ,top:50,bottom:40 ),
-                  child: TextField(
-                   
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Colors.purple
-                        )
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Colors.purple,
+                const SizedBox(height: 10),
 
-                          
-                        )
-                      ),
-                      hintText: 'Email',
-                      hintStyle: TextStyle(
-                        color: Colors.purple
-
-                      )
-
-
-                    ),
-                  
-                  
-                  
+                const Text(
+                  'EduMate',
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0,),
-                  child: TextField(
-                   
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Colors.purple
-                        )
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Colors.purple,
 
-                          
-                        )
-                      ),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                        color: Colors.purple
+                const SizedBox(height: 20),
 
-                      )
+                const Text(
+                  'Enter your login details to access your account',
+                  style: TextStyle(color: Colors.purple, fontSize: 18),
+                  textAlign: TextAlign.center,
+                ),
 
+                const SizedBox(height: 40),
 
+                // Facebook and Google buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _socialButton(
+                      color: const Color(0xFF03569A),
+                      icon: FontAwesomeIcons.facebook,
+                      text: 'Facebook',
                     ),
-                  
-                  
-                  
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical:20.0,horizontal: 50),
-                  child: Row(children: [
-                    Icon(Icons.check_box_outline_blank, color: Colors.purple,),
-                    SizedBox(width:5),
-                    Text('Remember Me?' ,style: TextStyle(color: Colors.purple, fontSize: 14, fontWeight: FontWeight.bold),)  ,
-                    Spacer(),
-                    Text('Forgot password?', style: TextStyle(color:Colors.red, fontSize: 14, fontWeight: FontWeight.bold),)
-                  ],),
+                    _socialButton(
+                      color: Colors.red,
+                      icon: FontAwesomeIcons.googlePlus,
+                      text: 'Google',
+                    ),
+                  ],
                 ),
 
-                SizedBox(height:30),
+                const SizedBox(height: 50),
+
+                // Email field
+                _inputField(hint: 'Email'),
+
+                const SizedBox(height: 20),
+
+                // Password field
+                _inputField(hint: 'Password'),
+
+                const SizedBox(height: 20),
+
+                Row(
+                  children: const [
+                    Icon(Icons.check_box_outline_blank, color: Colors.purple),
+                    SizedBox(width: 5),
+                    Text(
+                      'Remember Me?',
+                      style: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Text(
+                      'Forgot password?',
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 40),
 
                 GestureDetector(
-                  onTap: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> WelcomeScreen()));
-
-
-
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WelcomeScreen(),
+                      ),
+                    );
                   },
-                  child: CustomButton(size: size , text: 'Log in with your account')),
+                  child: _customButton(size: size, text: 'Log in with your account'),
+                ),
 
-                Padding(
-                  padding: const EdgeInsets.only(top:100,left:68,right:50),
-                  child: Row(children: [
-                    Text('Don\'t have an Account?', style: TextStyle(color:Colors.purple,fontSize: 14, fontWeight: FontWeight.bold),),
-                    SizedBox(width:10),
-                    Text('Create account', style:TextStyle(color:Colors.blue,fontSize: 14, fontWeight: FontWeight.bold)),
-                  ],),
-                )
-                
-            
-            
-            
-            
-            
-            
-              ]
-            
+                const Spacer(),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Don\'t have an Account?',
+                      style: TextStyle(
+                        color: Colors.purple,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Text(
+                      'Create account',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 20),
+              ],
             ),
-          )
+          ),
         ),
-      )
+      ),
+    );
+  }
 
+  // 🔹 Reusable social login button
+  Widget _socialButton({required Color color, required IconData icon, required String text}) {
+    return Container(
+      height: 45,
+      width: 135,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: Colors.white),
+          const SizedBox(width: 10),
+          Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
+  // 🔹 Reusable input field
+  Widget _inputField({required String hint}) {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: const TextStyle(color: Colors.purple),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: Colors.purple),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: Colors.purple, width: 1.5),
+        ),
+      ),
+    );
+  }
 
-
-
-
+  // 🔹 Custom main login button
+  Widget _customButton({required Size size, required String text}) {
+    return Container(
+      width: size.width * 0.8,
+      height: 50,
+      decoration: BoxDecoration(
+        color: Colors.purple,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: const TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }
