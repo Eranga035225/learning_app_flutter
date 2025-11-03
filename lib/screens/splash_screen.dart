@@ -15,10 +15,10 @@ class  SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.school, color: Colors.white, size: 90),
-            Text('EduMate', style:TextStyle(color:Colors.white, fontSize: 35, fontWeight: FontWeight.bold)),
+            Text('EduMate', style:TextStyle(color:Colors.white, fontSize: 32, fontWeight: FontWeight.bold)),
             // CircularProgressIndicator(color: Colors.white,)
             SizedBox(height:20),
-            CupertinoActivityIndicator(color: Colors.white, radius: 20,)
+            CupertinoActivityIndicator(color: Colors.white, radius: 15,)
           ],
         ))
 
