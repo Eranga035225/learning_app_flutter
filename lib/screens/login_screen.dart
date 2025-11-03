@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Facebook and Google buttons
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _socialButton(
                       color: const Color(0xFF03569A),
