@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app_flutter/screens/myClasses.dart';
 
 import 'login_screen.dart';
 
@@ -26,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height:30),
               GestureDetector(
                 onTap:() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyClasses()));
                 },
                 child: CustomButton(size: size, text: 'Start Learning'),
               )

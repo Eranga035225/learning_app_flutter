@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learning_app_flutter/screens/login_screen.dart';
 import 'package:logger/logger.dart';
 
 import 'welcome_screen.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // Logger().e("message");
     Timer(Duration(seconds: 3), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
     });
 
   }
